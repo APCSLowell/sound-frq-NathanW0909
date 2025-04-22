@@ -3,11 +3,9 @@ import java.util.*;
 public class Sound {
 
   /** the array of values in this sound; guaranteed not to be null */
-  private int[] samples;
+ int[] samples;
 
-  public Sound(int[] input) {
-    samples = input;
-  }
+ 
 
   public int limitAmplitude(int limit) {
     int changed = 0;
