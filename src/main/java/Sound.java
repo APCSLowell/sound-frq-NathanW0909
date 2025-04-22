@@ -23,16 +23,17 @@ public class Sound {
     return changed;
   }
 
-  public void trimSilenceFromBeginning() {
-    int index = 0;
-    while (index < samples.length && samples[index] == 0) {
-      index++;
-    }
-    int[] trimmed = Arrays.copyOfRange(samples, index, samples.length);
-    samples = trimmed;
-  }
+  public void trimSilenceFromBeginning()
+{
+    int n = 0;
+    while (samples[n] == 0)
+        n++;
 
-  public int[] getSamples() {
-    return samples;
-  }
+    int[] newSamples = new int[samples.length - n];
+
+    for (int i = 0; i < newSamples.length; i++)
+        newSamples[i] = samples[i + n];
+
+    samples = newSamples;
+}
 }
